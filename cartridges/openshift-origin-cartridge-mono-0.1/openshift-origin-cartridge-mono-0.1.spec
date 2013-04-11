@@ -2,7 +2,7 @@
 
 Summary:       Provides mono support
 Name:          openshift-origin-cartridge-mono-0.1
-Version:       0.1
+Version:       0.2
 Release:       1%{?dist}
 Group:         Development/Languages
 License:       ASL 2.0
@@ -96,3 +96,6 @@ ln -s %{cartridgedir}/../abstract/info/bin/sync_gears.sh %{buildroot}%{cartridge
 
 
 %changelog
+* Thu Apr 11 2013 Patrice LACHANCE <patlachance@gmail.com> 0.2-1
+- new package built with tito
++ added mono cartridge
