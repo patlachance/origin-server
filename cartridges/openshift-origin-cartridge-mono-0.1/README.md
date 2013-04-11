@@ -1,4 +1,4 @@
-ITisOpen.net's mono carthridge
+ITisOpen.net's mono cartridge
 
 This is a test cartridge to run Microsoft .Net applications on Linux OpenShift nodes using mono.
 It was built using the "Do It Yourself" cartrige provided by the OpenShift team as a starting base example to create our own.  It is provided as is without any support. 

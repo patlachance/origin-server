@@ -4,4 +4,4 @@
 # $OPENSHIFT_INTERNAL_IP:8080
 # more information : http://manpages.ubuntu.com/manpages/intrepid/man1/xsp.1.html
 cd $OPENSHIFT_REPO_DIR/mono/
-nohup xsp2 --address $OPENSHIFT_INTERNAL_IP --port $OPENSHIFT_INTERNAL_PORT --root $OPENSHIFT_REPO_DIR/mono > $OPENSHIFT_HOMEDIR/mono-0.1/logs/server.log 2>&1 &
+xsp2 --nonstop --address $OPENSHIFT_INTERNAL_IP --port $OPENSHIFT_INTERNAL_PORT --root $OPENSHIFT_REPO_DIR/mono > $OPENSHIFT_HOMEDIR/mono-0.1/logs/server.log 2>&1 
