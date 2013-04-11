@@ -1,0 +1,57 @@
+#!/bin/bash -e
+
+PATH=/bin/:/usr/bin:$PATH
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+function start {
+# more information : http://manpages.ubuntu.com/manpages/intrepid/man1/xsp.1.html
+   cd $OPENSHIFT_REPO_DIR/mono/
+   /usr/bin/xsp2 --nonstop  \
+                 --address $OPENSHIFT_INTERNAL_IP \
+                 --port $OPENSHIFT_INTERNAL_PORT \
+                 --root $OPENSHIFT_REPO_DIR/mono 
+                 > $OPENSHIFT_HOMEDIR/mono-0.1/logs/server.log 2>&1
+}
+
+function stop {
+   kill `ps -ef | grep xsp2 | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+   exit 0
+
+}
+
+function restart {
+#  touch $MOCK_STATE/control_restart
+#  stop
+#  start
+}
+
+function build {
+   echo "not yet implemented"
+}
+
+function build {
+  echo "Mock building..."
+  touch $MOCK_STATE/control_build
+  echo "Mock successfully built."
+}
+
+case "$1" in
+  start)         start ;;
+  stop)          stop ;;
+  restart)       catchall ;;
+  status)        catchall ;;
+  reload)        catchall ;;
+  tidy)          catchall ;;
+  pre-build)     catchall ;;
+  build)         build ;;
+  deploy)        catchall ;;
+  post-deploy)   catchall ;;
+  pre-snapshot)  catchall ;;
+  post-snapshot) catchall ;;
+  pre-restore)   catchall ;;
+  post-restore)  catchall ;;
+  *)           exit 0
+esac
+
+exit 0
