@@ -1,0 +1,7 @@
+#!/bin/bash
+# The logic to start up your application should be put in this
+# script. The application will work only if it binds to
+# $OPENSHIFT_INTERNAL_IP:8080
+# more information : http://manpages.ubuntu.com/manpages/intrepid/man1/xsp.1.html
+cd $OPENSHIFT_REPO_DIR/mono/
+nohup xsp2 --address $OPENSHIFT_INTERNAL_IP --port $OPENSHIFT_INTERNAL_PORT --root $OPENSHIFT_REPO_DIR/mono > $OPENSHIFT_HOMEDIR/mono-0.1/logs/server.log 2>&1 &
